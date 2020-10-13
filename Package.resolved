@@ -2,24 +2,6 @@
   "object": {
     "pins": [
       {
-        "package": "Alamofire",
-        "repositoryURL": "https://github.com/Alamofire/Alamofire.git",
-        "state": {
-          "branch": null,
-          "revision": "becd9a729a37bdbef5bc39dc3c702b99f9e3d046",
-          "version": "5.2.2"
-        }
-      },
-      {
-        "package": "Commandant",
-        "repositoryURL": "https://github.com/Carthage/Commandant.git",
-        "state": {
-          "branch": null,
-          "revision": "ab68611013dec67413628ac87c1f29e8427bc8e4",
-          "version": "0.17.0"
-        }
-      },
-      {
         "package": "DeviceKit",
         "repositoryURL": "https://github.com/devicekit/DeviceKit.git",
         "state": {
@@ -29,75 +11,12 @@
         }
       },
       {
-        "package": "Nimble",
-        "repositoryURL": "https://github.com/Quick/Nimble.git",
-        "state": {
-          "branch": null,
-          "revision": "7a46a5fc86cb917f69e3daf79fcb045283d8f008",
-          "version": "8.1.2"
-        }
-      },
-      {
         "package": "PinLayout",
         "repositoryURL": "https://github.com/layoutBox/PinLayout.git",
         "state": {
           "branch": null,
           "revision": "0a0a65290cc52ba2410475d4388420f76a63eff9",
           "version": "1.9.2"
-        }
-      },
-      {
-        "package": "Quick",
-        "repositoryURL": "https://github.com/Quick/Quick.git",
-        "state": {
-          "branch": null,
-          "revision": "09b3becb37cb2163919a3842a4c5fa6ec7130792",
-          "version": "2.2.1"
-        }
-      },
-      {
-        "package": "SourceKitten",
-        "repositoryURL": "https://github.com/jpsim/SourceKitten.git",
-        "state": {
-          "branch": null,
-          "revision": "c0f960f72fa1e6151695074ffa696e4da6c45ce8",
-          "version": "0.30.1"
-        }
-      },
-      {
-        "package": "SwiftLint",
-        "repositoryURL": "https://github.com/realm/SwiftLint.git",
-        "state": {
-          "branch": null,
-          "revision": "4f8b7a5f480aad922beab9b3c674023e211bd177",
-          "version": "0.40.3"
-        }
-      },
-      {
-        "package": "SwiftyTextTable",
-        "repositoryURL": "https://github.com/scottrhoyt/SwiftyTextTable.git",
-        "state": {
-          "branch": null,
-          "revision": "c6df6cf533d120716bff38f8ff9885e1ce2a4ac3",
-          "version": "0.9.0"
-        }
-      },
-      {
-        "package": "SWXMLHash",
-        "repositoryURL": "https://github.com/drmohundro/SWXMLHash.git",
-        "state": {
-          "branch": null,
-          "revision": "a4931e5c3bafbedeb1601d3bb76bbe835c6d475a",
-          "version": "5.0.1"
-        }
-      },
-      {
-        "package": "Yams",
-        "repositoryURL": "https://github.com/jpsim/Yams.git",
-        "state": {
-          "branch": null,
-          "revision": "88caa2e6fffdbef2e91c2022d038576062042907",
-          "version": "4.0.0"
         }
       }
     ]
