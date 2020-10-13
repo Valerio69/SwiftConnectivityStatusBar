@@ -30,25 +30,27 @@ public final class SCStatusBar {
   }
   
   func showStatusBar() {
-    if let window = self.getFirstWindow() {
-      window.addSubview(self.statusBarView)
-      
-      self.statusBarView.pin.right().left().height(barHeight).top(-barHeight)
-      
-      UIView.animate(withDuration: 0.2) {
-        window.subviews[0].pin.top(self.barHeight).height(UIScreen.main.bounds.size.height - self.barHeight)
-        self.statusBarView.pin.top()
+    DispatchQueue.main.async { [self] in
+      if let window = getFirstWindow() {
+        window.addSubview(statusBarView)
+        statusBarView.pin.right().left().height(barHeight).top(-barHeight)
+        UIView.animate(withDuration: 0.2) {
+          window.subviews[0].pin.top(barHeight).height(UIScreen.main.bounds.size.height - self.barHeight)
+          statusBarView.pin.top()
+        }
       }
     }
   }
   
   func hideStatusBar() {
-    if let window = self.getFirstWindow() {
-      UIView.animate(withDuration: 0.2, animations: {
-        self.statusBarView.pin.top(-self.barHeight)
-        window.subviews[0].pin.top().height(UIScreen.main.bounds.size.height)
-      }) { (_) in
-        self.statusBarView.removeFromSuperview()
+    DispatchQueue.main.async { [self] in
+      if let window = getFirstWindow() {
+        UIView.animate(withDuration: 0.2, animations: {
+          statusBarView.pin.top(-barHeight)
+          window.subviews[0].pin.top().height(UIScreen.main.bounds.size.height)
+        }) { (_) in
+          statusBarView.removeFromSuperview()
+        }
       }
     }
   }
