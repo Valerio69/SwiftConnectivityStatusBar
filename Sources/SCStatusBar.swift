@@ -8,13 +8,30 @@ public final class SCStatusBar {
   public static let shared = SCStatusBar()
   
   private let monitor = NWPathMonitor()
-  let queue = DispatchQueue(label: "SCStatusBar-Monitor", qos: .default)
+  private let queue = DispatchQueue(label: "SCStatusBar-Monitor", qos: .default)
   
-  private let statusBarView = SCStatusBarView()
+  // Our custom view
+  private lazy var statusBarView: SCStatusBarView = {
+    return SCStatusBarView(statusString: statusBarString)
+  }()
+  
+  // The Status bar height is 64 for Devices with Notch and 44 for Devices without Notch.
   private let barHeight: CGFloat = Device.current.hasSensorHousing ? 64 : 44
   
+  /// set the status bar label string. Default is ""Waiting for connection"
+  public var statusBarString: String = "Waiting for connection" {
+    didSet {
+      statusBarView.setStatusLabelString(statusBarString)
+    }
+  }
   
-  public func startMonitor() {
+  /// Start monitoring the connection and show the View at the top if we are disconnected
+  /// - Parameter statusString: set a custom Status bar label string.
+  public func startMonitor(statusString: String?) {
+    // Set a custom status if provided.
+    if let text = statusString {
+      statusBarString = text
+    }
     monitor.pathUpdateHandler = { [self] path in
       if path.status == .satisfied {
         print("We're connected!")
@@ -29,11 +46,16 @@ public final class SCStatusBar {
     monitor.start(queue: queue)
   }
   
-  func showStatusBar() {
+  /// Stop receiving network updates
+  public func staopMonitor() {
+    monitor.cancel()
+  }
+  
+  private func showStatusBar() {
     DispatchQueue.main.async { [self] in
       if let window = getFirstWindow() {
         window.addSubview(statusBarView)
-        statusBarView.pin.right().left().height(barHeight).top(-barHeight)
+        statusBarView.pin.horizontally().height(barHeight).top(-barHeight)
         UIView.animate(withDuration: 0.2) {
           window.subviews[0].pin.top(barHeight).height(UIScreen.main.bounds.size.height - self.barHeight)
           statusBarView.pin.top()
@@ -42,7 +64,7 @@ public final class SCStatusBar {
     }
   }
   
-  func hideStatusBar() {
+  private func hideStatusBar() {
     DispatchQueue.main.async { [self] in
       if let window = getFirstWindow() {
         UIView.animate(withDuration: 0.2, animations: {

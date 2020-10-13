@@ -21,7 +21,7 @@ class SCStatusBarView: UIView {
     return label
   }()
   
-  init(statusString: String = "Waiting for connection") {
+  init(statusString: String) {
     self.statusString = statusString
     super.init(frame: .zero)
     
@@ -41,5 +41,9 @@ class SCStatusBarView: UIView {
     contentView.pin.all()
     statusLabel.pin.hCenter().bottom(6)
     
+  }
+  
+  func setStatusLabelString(_ string: String) {
+    statusLabel.text = string
   }
 }
