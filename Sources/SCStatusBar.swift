@@ -47,7 +47,7 @@ public final class SCStatusBar {
   }
   
   /// Stop receiving network updates
-  public func staopMonitor() {
+  public func stopMonitor() {
     monitor.cancel()
   }
   
