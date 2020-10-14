@@ -38,6 +38,10 @@ class SCStatusBarView: UIView {
   init(style: SCStatusBarStyle) {
     self.style = style
     super.init(frame: .zero)
+    backgroundColor = .white
+    
+    addSubview(contentView)
+    contentView.addSubview(statusLabel)
   }
   
   required init?(coder: NSCoder) {
@@ -47,14 +51,8 @@ class SCStatusBarView: UIView {
   override func layoutSubviews() {
     super.layoutSubviews()
     statusLabel.sizeToFit()
-    
     contentView.pin.all()
     statusLabel.pin.hCenter().bottom(6)
-    
-  }
-  
-  func setStatusLabelString(_ string: String) {
-    statusLabel.text = string
   }
   
   func refreshStyle(style: SCStatusBarStyle) {

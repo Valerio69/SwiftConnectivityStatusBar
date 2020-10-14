@@ -26,9 +26,6 @@ public final class SCStatusBar {
     }
   }
   
-  
-  
-  
   /// Start monitoring the connection and show the View at the top if we are disconnected
   /// - Parameter statusString: set a custom Status bar label string.
   public func startMonitor() {
