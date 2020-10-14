@@ -10,6 +10,9 @@ A simple UIView that will appear on top of your Screen when the there is no Inte
 
 
 # Usage
+
+### Swift Package Manager
+
 ```swift
 dependencies: [
     .package(url: "https://github.com/Valerio69/SwiftConnectivityStatusBar.git", .upToNextMajor(from: "1.0.2"))
