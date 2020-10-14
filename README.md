@@ -7,7 +7,8 @@ A simple UIView that will appear on top of your Screen when the there is no Inte
 
 
 # Usage
-One Simple usage could be within the SceneDelegate class where you can start the monitor when the app is in Foreground and stop it when in Background.
+
+For example within the SceneDelegate class you can start the monitor when the app is in Foreground and stop it when in Background.
 ```swift
 import SwiftConnectivityStatusBar
 
