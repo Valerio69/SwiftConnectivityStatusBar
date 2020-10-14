@@ -7,7 +7,7 @@ public final class SCStatusBar {
   
   public static let shared = SCStatusBar()
   
-  private let monitor = NWPathMonitor()
+  private var monitor = NWPathMonitor()
   private let queue = DispatchQueue(label: "SCStatusBar-Monitor", qos: .default)
   
   // Our custom view
@@ -29,6 +29,8 @@ public final class SCStatusBar {
   /// Start monitoring the connection and show the View at the top if we are disconnected
   /// - Parameter statusString: set a custom Status bar label string.
   public func startMonitor() {
+    monitor.cancel()
+    monitor = NWPathMonitor()
     monitor.pathUpdateHandler = { [self] path in
       if path.status == .satisfied {
         print("We're connected!")
