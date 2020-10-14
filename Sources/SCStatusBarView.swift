@@ -38,6 +38,7 @@ class SCStatusBarView: UIView {
   init(style: SCStatusBarStyle) {
     self.style = style
     super.init(frame: .zero)
+    backgroundColor = .white
     
     addSubview(contentView)
     contentView.addSubview(statusLabel)
