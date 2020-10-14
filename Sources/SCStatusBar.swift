@@ -12,26 +12,26 @@ public final class SCStatusBar {
   
   // Our custom view
   private lazy var statusBarView: SCStatusBarView = {
-    return SCStatusBarView(statusString: statusBarString)
+    return SCStatusBarView(style: self.style)
   }()
   
   // The Status bar height is 64 for Devices with Notch and 44 for Devices without Notch.
   private let barHeight: CGFloat = Device.current.hasSensorHousing ? 64 : 44
   
   /// set the status bar label string. Default is ""Waiting for connection"
-  public var statusBarString: String = "Waiting for connection" {
+  public var style: SCStatusBarStyle = SCStatusBarStyle(statusString: "Waiting for connection",
+                                                        backgroundColor: UIColor.red.withAlphaComponent(0.5)) {
     didSet {
-      statusBarView.setStatusLabelString(statusBarString)
+      statusBarView.refreshStyle(style: style)
     }
   }
   
+  
+  
+  
   /// Start monitoring the connection and show the View at the top if we are disconnected
   /// - Parameter statusString: set a custom Status bar label string.
-  public func startMonitor(statusString: String? = nil) {
-    // Set a custom status if provided.
-    if let text = statusString {
-      statusBarString = text
-    }
+  public func startMonitor() {
     monitor.pathUpdateHandler = { [self] path in
       if path.status == .satisfied {
         print("We're connected!")
