@@ -3,8 +3,8 @@ import UIKit
 import PinLayout
 
 public struct SCStatusBarStyle {
-  var statusString: String = "Waiting for connection"
-  var backgroundColor: UIColor = UIColor.red.withAlphaComponent(0.5)
+  let statusString: String
+  let backgroundColor: UIColor
 }
 
 class SCStatusBarView: UIView {
