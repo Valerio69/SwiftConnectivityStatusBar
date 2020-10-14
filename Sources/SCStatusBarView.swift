@@ -3,8 +3,8 @@ import UIKit
 import PinLayout
 
 public struct SCStatusBarStyle {
-  let statusString: String
-  let backgroundColor: UIColor
+  public let statusString: String
+  public let backgroundColor: UIColor
 }
 
 class SCStatusBarView: UIView {
