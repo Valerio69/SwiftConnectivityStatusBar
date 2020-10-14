@@ -22,13 +22,13 @@ class SCStatusBarView: UIView {
 
   private lazy var contentView: UIView = {
     let view = UIView()
-    view.backgroundColor = style.backgroundColor
+    view.backgroundColor = .red
     return view
   }()
   
   private lazy var statusLabel: UILabel = {
     let label = UILabel()
-    label.text = style.statusString
+    label.text = "style.statusString"
     label.textColor = .white
     label.font = UIFont.preferredFont(forTextStyle: .footnote)
     label.adjustsFontForContentSizeCategory = true
