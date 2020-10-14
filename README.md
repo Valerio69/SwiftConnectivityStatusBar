@@ -2,5 +2,4 @@
 
 A description of this package.
 
-![](/Design/SwiftConnectivityStatusBar.gif)
-<img src="/Design/SwiftConnectivityStatusBar.gif" width="250" height="250"/>
+<img src="/Design/SwiftConnectivityStatusBar.gif" width="420" height="747"/>
