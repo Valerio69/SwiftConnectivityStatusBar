@@ -28,8 +28,10 @@ import SwiftConnectivityStatusBar
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneWillEnterForeground(_ scene: UIScene) {
         SCStatusBar.shared.startMonitor()
-        // OR pass the string that you want to be diplayed
-        SCStatusBar.shared.startMonitor(statusString: "No Connection")
+        // OR using a custom style
+        SCStatusBar.shared.style = SCStatusBarStyle(statusString: "Custom String",
+                                                    backgroundColor: UIColor.green.withAlphaComponent(0.5))
+        SCStatusBar.shared.startMonitor()
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {

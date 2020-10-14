@@ -51,14 +51,8 @@ class SCStatusBarView: UIView {
   override func layoutSubviews() {
     super.layoutSubviews()
     statusLabel.sizeToFit()
-    
     contentView.pin.all()
     statusLabel.pin.hCenter().bottom(6)
-    
-  }
-  
-  func setStatusLabelString(_ string: String) {
-    statusLabel.text = string
   }
   
   func refreshStyle(style: SCStatusBarStyle) {
