@@ -58,4 +58,5 @@ class SCStatusBarView: UIView {
   func refreshStyle(style: SCStatusBarStyle) {
     self.style = style
   }
+  
 }
