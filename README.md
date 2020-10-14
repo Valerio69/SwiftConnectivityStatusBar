@@ -5,10 +5,20 @@ A simple UIView that will appear on top of your Screen when the there is no Inte
 
 <img src="/Design/SwiftConnectivityStatusBar.gif" width="300" height="533"/>
 
+# Installation
+
+
 
 # Usage
+```swift
+dependencies: [
+    .package(url: "https://github.com/Valerio69/SwiftConnectivityStatusBar.git", .upToNextMajor(from: "1.0.2"))
+]
+```
 
-For example within the SceneDelegate class you can start the monitor when the app is in Foreground and stop it when in Background.
+### Example
+
+Within the SceneDelegate class you can start the monitor when the app is in Foreground and stop it when in Background.
 ```swift
 import SwiftConnectivityStatusBar
 
