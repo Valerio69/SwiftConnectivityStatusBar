@@ -50,9 +50,9 @@ class SCStatusBarView: UIView {
   
   override func layoutSubviews() {
     super.layoutSubviews()
-    statusLabel.sizeToFit()
     pin.width(100%)
     contentView.pin.all()
+    statusLabel.sizeToFit()
     statusLabel.pin.bottom(6).horizontally(6)
   }
   
