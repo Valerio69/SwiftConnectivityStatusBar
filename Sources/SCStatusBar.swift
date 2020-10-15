@@ -7,16 +7,22 @@ public final class SCStatusBar {
   
   public static let shared = SCStatusBar()
   
-  private let queue = DispatchQueue(label: "SCStatusBar-Monitor", qos: .default)
+  let queue = DispatchQueue(label: "SCStatusBar-Monitor", qos: .default)
   var monitor: NWPathMonitor?
   
   // Our custom view
-  private lazy var statusBarView: SCStatusBarView = {
+  lazy var statusBarView: SCStatusBarView = {
     return SCStatusBarView(style: self.style)
   }()
   
   // The Status bar height is 64 for Devices with Notch and 44 for Devices without Notch.
-  private let barHeight: CGFloat = Device.current.hasSensorHousing ? 64 : 44
+  lazy var barHeight: CGFloat = {
+    return deviceHasSensorHousing() ? 64.0 : 44.0
+  }()
+  
+  func deviceHasSensorHousing() -> Bool {
+    return Device.current.hasSensorHousing
+  }
   
   /// set the status bar label string. Default is ""Waiting for connection"
   public var style: SCStatusBarStyle = SCStatusBarStyle(statusString: "Waiting for connection",
@@ -51,9 +57,10 @@ public final class SCStatusBar {
   /// Stop receiving network updates
   public func stopMonitor() {
     monitor?.cancel()
+    monitor = nil
   }
   
-  private func showStatusBar() {
+  func showStatusBar() {
     DispatchQueue.main.async { [self] in
       if let window = getFirstWindow() {
         window.addSubview(statusBarView)
@@ -66,7 +73,7 @@ public final class SCStatusBar {
     }
   }
   
-  private func hideStatusBar() {
+  func hideStatusBar() {
     DispatchQueue.main.async { [self] in
       if let window = getFirstWindow() {
         UIView.animate(withDuration: 0.2, animations: {
@@ -77,10 +84,6 @@ public final class SCStatusBar {
         }
       }
     }
-  }
-  
-  private func ads() {
-    
   }
   
 }
