@@ -52,7 +52,7 @@ class SCStatusBarView: UIView {
     super.layoutSubviews()
     statusLabel.sizeToFit()
     contentView.pin.all()
-    statusLabel.pin.hCenter().bottom(6)
+    statusLabel.pin.hCenter().bottom(6).horizontally(6)
   }
   
   func refreshStyle(style: SCStatusBarStyle) {
