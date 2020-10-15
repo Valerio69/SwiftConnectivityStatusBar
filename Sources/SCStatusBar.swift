@@ -8,7 +8,7 @@ public final class SCStatusBar {
   public static let shared = SCStatusBar()
   
   private let queue = DispatchQueue(label: "SCStatusBar-Monitor", qos: .default)
-  private var monitor: NWPathMonitor?
+  var monitor: NWPathMonitor?
   
   // Our custom view
   private lazy var statusBarView: SCStatusBarView = {
@@ -77,6 +77,10 @@ public final class SCStatusBar {
         }
       }
     }
+  }
+  
+  private func ads() {
+    
   }
   
 }
